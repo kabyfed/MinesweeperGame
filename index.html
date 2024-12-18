@@ -1,54 +1,90 @@
-<!DOCTYPE html>
 <html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игра Сапёр</title>
+    <title>Игра Сапер</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <h2>Игра Сапёр</h2>
+
+    <h2>Игра Сапер</h2>
 
     <div class="menu">
-        <button id="view-past-games">Статистика</button>
+        <button id="view-past-games">Просмотр прошлых игр</button>
         <button id="clear-db">Очистить базу данных</button>
-        <dialog id="modal">
-            <div class="settings">
-                <div class="closeBlock">
-                    <button id="closeModal">X</button>
-                </div>
-                <label for="player-name">Имя игрока:</label>
-                <input type="text" id="player-name" placeholder="Введите ваше имя">
+        <button id="help">Помощь</button>
+        <ul id="game-list" class="game-list"></ul>
+    </div>
+    <button id="openModal">Начать новую игру</button>
+    
+    <div id="help-container" style="display: none;" class="helper">
+        <h3>Справка</h3>
+        <p>
+            <strong>Доступные функции:</strong><br>
+            - <em>Новая игра:</em> Позволяет начать новую игру с заданными параметрами (ширина, высота и количество
+            мин).<br>
+            - <em>Просмотр прошлых игр:</em> Открывает список всех сохранённых игр. Чтобы посмотреть реплей конкретной
+            игры, нажмите на кнопку <strong>"Просмотр прошлых игр"</strong> и выберите интересующую игру из списка.<br>
+            - <em>Повтор игры (Replay):</em> Показывает пошаговую историю выбранной игры, включая информацию о каждом
+            ходе (координаты и результат).<br>
+            - <em>Очистка базы данных:</em> Удаляет все сохранённые игры из базы данных.<br>
+        </p>
+        <p>
+            <strong>Как играть:</strong><br>
+            1. Введите ваше имя в поле "Имя игрока".<br>
+            2. Установите параметры игры (размер поля и количество мин).<br>
+            3. Нажмите кнопку "Новая игра", чтобы начать новую игру.<br>
+            4. Щёлкайте по ячейкам на игровом поле, чтобы открыть их. Если вы откроете ячейку с миной, игра
+            закончится.<br>
+            5. Цель игры — открыть все ячейки без мин.<br>
+        </p>
+        <button id="close-help">Закрыть</button>
+    </div>
 
-                <label for="width">Ширина:</label>
-                <input type="number" id="width" value="10" min="2" max="30">
-
-                <label for="height">Высота:</label>
-                <input type="number" id="height" value="10" min="2" max="30">
-
-                <label for="mines">Мины:</label>
-                <input type="number" id="mines" value="10" min="1" max="100">
-
-                <div id="error-message"></div>
-                <button id="startBtn">Старт</button>
+    <dialog id="modal">
+        <div class="settings">
+            <div class="closeBlock">
+                <button id="closeModal">X</button>
             </div>
-        </dialog>
-        <button id="openModal">Начать новую игру</button>
+            <label for="player-name">Имя игрока:</label>
+            <input type="text" id="player-name" placeholder="Введите ваше имя">
 
-        <div id="past-games-container" style="display: none;">
-            <h3>Статистика игр</h3>
-            <ul id="game-list"></ul>
+            <label for="width">Ширина:</label>
+            <input type="number" id="width" value="10" min="2" max="30">
+
+            <label for="height">Высота:</label>
+            <input type="number" id="height" value="10" min="2" max="30">
+
+            <label for="mines">Мины:</label>
+            <input type="number" id="mines" value="10" min="1" max="100">
+
+            <div id="error-message"></div>
+            <button id="startBtn">Старт</button>
         </div>
+    </dialog>
+    
 
+    <div id="past-games-container" style="display: none;">
+        <h3>Повтор игры</h3>
+        <ul id="replay-list"></ul>
+        <button id="close-replay">Закрыть</button>
     </div>
 
     <div class="game-container">
         <div id="game-board"></div>
         <p id="game-status"></p>
     </div>
-    <script src="scripts/main.js"></script>
+
+    
+
+    
+
+
+    <script src="https://unpkg.com/idb@7.0.0/build/umd.js"></script>
+    <script type="module" src="./scripts/game.js"></script>
+    <script type="module" src="./scripts/dataBase.js"></script>
 </body>
 
 </html>

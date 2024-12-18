@@ -4,6 +4,198 @@
     box-sizing: border-box;
 }
 
+.menu {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    width: 150px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#help-container {
+    display: none;
+    /* По умолчанию скрыт */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+
+#help-container h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#help-container p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #34495e;
+}
+
+#help-container strong {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+#help-container em {
+    font-style: italic;
+    color: #2980b9;
+}
+
+#close-help {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#close-help:hover {
+    background-color: #c0392b;
+}
+
+.game-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.game-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 16px;
+    color: #34495e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.game-list li:first-child {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+
+.game-list li:last-child {
+    border-bottom: none;
+}
+
+.game-list li:hover {
+    background-color: #d9edf7;
+}
+
+.game-list li span {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+
+#replay-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Заголовок */
+#replay-list>strong {
+    display: block;
+    padding: 15px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #2980b9;
+    text-align: center;
+}
+
+/* Данные об игре */
+#replay-list>a {
+    display: block;
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ecf0f1;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #dcdcdc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#replay-list>a:hover {
+    background-color: #d9edf7;
+    color: #2c3e50;
+}
+
+/* Список ходов */
+#replay-list ul {
+    padding: 10px 20px;
+    margin: 0;
+}
+
+#replay-list li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #2c3e50;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#replay-list li:last-child {
+    border-bottom: none;
+}
+
+/* Стили для текста результата хода */
+#replay-list li span {
+    font-weight: bold;
+    color: #27ae60;
+    /* Зеленый для безопасных ходов */
+}
+
+#replay-list li span.danger {
+    color: #e74c3c;
+    /* Красный для мин */
+}
+
+#replay-list li:hover {
+    background-color: #f9f9f9;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #3b3f45;
@@ -20,6 +212,7 @@ h3 {
     font-size: 40px;
     margin: 20px 0;
     color: #ff7f11;
+    text-align: center;
 }
 
 .menu {
@@ -159,4 +352,36 @@ dialog {
 
 li {
     margin: 10px;
+}
+
+.cell.color-1 {
+    color: #4299E1;
+}
+
+.cell.color-2 {
+    color: green;
+}
+
+.cell.color-3 {
+    color: red;
+}
+
+.cell.color-4 {
+    color: purple;
+}
+
+.cell.color-5 {
+    color: maroon;
+}
+
+.cell.color-6 {
+    color: teal;
+}
+
+.cell.color-7 {
+    color: black;
+}
+
+.cell.color-8 {
+    color: gray;
 }
